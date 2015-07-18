@@ -1,0 +1,17 @@
+<?
+default_img = 'pix.gif'
+img = session.get('img')
+if not img:
+	img = default_img
+if not os.access(img, os.O_RDONLY):
+	for file in os.listdir('.'):
+		if os.path.splitext(file)[0] == img:
+			img = file
+			break
+	else:
+		img = default_img
+import mimetypes
+typ, enc = mimetypes.guess_type(img)
+img = open(img).read()
+replace_page_with_image(img, typ, enc)
+?>
