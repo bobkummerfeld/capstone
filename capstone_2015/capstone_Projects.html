@@ -1,0 +1,1861 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>capstone Projects</title>
+<base href="http://bobkummerfeld.github.io/capstone/index.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+-->
+
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.list-group{
+	width: 100px;
+}
+.bs-example{
+   	margin: 20px;
+}
+</style>
+<style type="text/css">
+
+img {max-width:100%}
+
+
+
+
+.tooltip {
+    display:none;
+    background:transparent url(/media/img/tooltip/black_arrow.png);
+    font-size:12px;
+    height:70px;
+    width:160px;
+    padding:25px;
+    color:#eee;
+}
+
+body {
+	margin: 0;
+/*	background-color: #e6e6e6;	*/
+	background-color: #ffffff;
+	border: 0;
+	padding: 2px;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+}
+
+.frame {
+ }
+.framedata { }
+.column { }
+.columndata { }
+.cell { padding: 10px; }
+
+.loginbanner {
+	background-color: #fed;
+	border:	1px solid #dcb;
+	padding: 0px 5px 2px 5px;
+	font-size: 80%; font-weight: bold;
+	color: #39628b;
+}
+.cellbanner {
+	background-color: #fff;
+	/*border:	1px solid #fff; */
+/*
+	border-right:  1px solid #b0b0b0;
+	border-top: 1px solid #b0b0b0;
+	border-left:   1px solid #b0b0b0;
+*/
+	border-right:  1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	border-left:   1px solid #ffffff;
+	padding: 0px 5px 2px 5px;
+	font-size: 120%; font-weight: bold;
+	color: #39628b;
+}
+.cellbody {
+	background-color: #fff;
+/*
+	border-right:  1px solid #b0b0b0;
+	border-bottom: 1px solid #b0b0b0;
+	border-left:   1px solid #b0b0b0;
+*/
+	border-right:  1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	border-left:   1px solid #ffffff;
+	padding: 10px;
+}
+
+/* order is important */
+/*
+a:link { color: darkblue; }
+*/
+a:visited { color: darkblue; }
+a:hover { color: blue; }
+a:active { color: blue; }
+
+a.non { text-decoration: none; }
+a.smallnon { font-size: 80%; text-decoration: none; }
+
+p.hang {
+	text-indent: -1em;
+	margin-left: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+p.spaced { margin-bottom: 20px; }
+p { margin-bottom: 20px; }
+div.boxed {
+	text-indent: 1em;
+	margin-left: 1em;
+	margin-top: 0;
+	margin-bottom: 20;
+	border: 5px solid gray;
+	width:"50%";
+}
+
+
+pre.darkgreen { color: darkgreen; }
+pre.darkblue { color: darkblue; }
+
+span.logname {
+	font-weight: bold;
+	font-size: 80%;
+	color: darkblue;
+}
+
+span.logtext {
+	font-size: 80%;
+}
+
+span.sestext {
+	font-size: 80%;
+	color: darkblue;
+}
+
+button.logout {
+	padding: 0;
+	font-weight: bold;
+	font-size: 80%;
+	color: darkblue;
+	float: right;
+}
+
+button.darkblue {
+	padding: 0;
+	font-weight: bold;
+	color: darkblue;
+}
+
+table.role { margin: 2px; font-size: 90%; font-weight: bold; background-color: #39628b; }
+td.role { text-align: center; font-size: 100%; font-weight: bold; color: #fff; }
+td img.decor { display: block; }
+
+a.external { text-decoration: none; }
+a.external:link { color: #fff }
+a.external:visited { color: #fff }
+a.external:hover { color: #ffc }
+a.external:active { color: #ffc }
+
+span.edit { float: right; }
+a.edit { text-decoration: none; color: #dcb; }
+a.edit:hover { color: blue; }
+a.edit:active { color: blue; }
+</style>
+<script type="text/javascript">//<![CDATA[
+
+var cell_long = "Images/glyphicons_368_collapse.png"
+var cell_short = "Images/glyphicons_369_collapse_top.png"
+
+function expandCollapse(eltid)
+{
+	var element = document.getElementById(eltid);
+	var imgelement = document.getElementById("IMG"+eltid);
+	if (element.style.display == "none")
+	{
+		element.style.display = "block";
+		imgelement.src = cell_short;
+	}
+	else
+	{
+		element.style.display = "none";
+		imgelement.src = cell_long;
+	}
+	
+}
+
+
+$(function() {
+$( document ).tooltip();
+});
+//]]></script>
+
+</head>
+
+<body>
+
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="frame"><tr>
+
+<!-- Top START -->
+<td class="framedata" valign="top" colspan="3">
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="column">
+<tr><td width="100%" style="position:fixed;  top:0px;left:0px;  z-index:10" id="bannercell" class="columndata">
+
+<!-- Cell START -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="role" style="background:#12416C;">
+  <tr> 
+    <td colspan="3">
+      <img src="Images/pix.gif" width="1" height="1" alt="" hspace="275" vspace="0" class="decor">
+    </td>
+  </tr>
+  <tr> 
+    <td>
+      <a href="http://www.usyd.edu.au">
+        <img src="Images/university_sydney_logo.gif" width="200" height="80" alt="link to University of Sydney Web
+	Page"  border="0" class="decor">
+      </a>
+    </td>
+	<!--
+    <td>
+      <a href="http://www.usyd.edu.au">
+        <img src="Images/top_banner_in02.gif" width="227" height="52" alt="" title="" border="0" class="decor">
+      </a>
+    </td>
+	-->
+    <td width="60%" align="center" class="role" style="text-align:right; padding-right:10px;">
+    COMP3615 Software Development Project<br/>INFO3600 Major Development Project<br/>COMP5615 Software Engineering Project<br/>
+      <a class="external" href="http://www.it.usyd.edu.au">
+        School&nbsp;of&nbsp;Information&nbsp;Technologies
+      </a>
+    </td>
+  </tr>
+</table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<div style="height:100px">X</div>
+<!-- Cell END -->
+
+</td></tr>
+</table></td>
+<!-- Top END -->
+
+</tr><tr>
+
+<!-- Column 1 START -->
+<td class="framedata" valign="top">
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="column">
+<tr><td style="position:fixed;  width:120px;height:50px;top:80px;left:7px;  z-index:0" id="menucell" class="columndata">
+
+<!-- Cell START -->
+<script>
+var sessionname = "capstone";
+function gothere(where)
+{
+	var i = location.href.lastIndexOf('/');
+	var leading = location.href.slice(0,i);
+	if (location.pathname.slice(-4) == '.cgi')
+	{
+		var j = location.href.lastIndexOf('?');
+		var scriptname = location.href.slice(i+1,j+1);
+	        location.assign(leading+"/"+scriptname+where);
+	}
+	else
+	{
+		location.assign(leading+"/"+sessionname+"_"+where+".html");
+	}
+}
+</script>
+
+<div class="bs-example">
+    <div class="list-group" style="width:110px;">
+
+
+		<a href="javascript: gothere('Home');" class="list-group-item ">
+			Home
+		</a>
+		
+
+		<a href="javascript: gothere('Clients');" class="list-group-item ">
+			Clients
+		</a>
+		
+
+		<a href="javascript: gothere('Projects');" class="list-group-item active">
+			Projects
+		</a>
+		
+
+		<a href="javascript: gothere('Extreme');" class="list-group-item ">
+			Extreme
+		</a>
+		
+
+		<a href="javascript: gothere('Tools');" class="list-group-item ">
+			Tools
+		</a>
+		
+
+		<a href="javascript: gothere('Groups');" class="list-group-item ">
+			Groups
+		</a>
+		
+
+		<a href="javascript: gothere('Assess');" class="list-group-item ">
+			Assess
+		</a>
+		
+
+		<a href="javascript: gothere('Piazza');" class="list-group-item ">
+			Piazza
+		</a>
+		
+</div>
+</div>
+<!-- Cell END -->
+
+</td></tr>
+</table></td>
+<!-- Column 1 END -->
+
+
+<!-- Column 2 START -->
+<td class="framedata" valign="top">
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="column">
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<div style="min-width: 140px"> &nbsp; </div>
+<!-- Cell END -->
+
+</td></tr>
+</table></td>
+<!-- Column 2 END -->
+
+
+<!-- Column 3 START -->
+<td width="85%" class="framedata" valign="top">
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="column">
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+</td></tr><tr><td class="cellbody">
+<H1>Project list and descriptions
+</H1>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPAFadherence"><img id="IMGAFadherence"  onclick="javascript: expandCollapse('AFadherence');" title="expand/collapse">&nbsp;&nbsp;Campus: improving care for patients with atrial fibrillation </div>
+        <script> var elt = document.getElementById("IMG"+"AFadherence"); elt.src = cell_long; $("#TIPAFadherence img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="AFadherence" style="display: none;">
+<b>Contact</b>: 
+Lis Neubeck and
+Robyn Gallagher 
+<br/>
+<b>Description</b>: 
+The clients work with people who have atrial fibrillation and need to work
+out how to manage their health effectively,
+following the evidence from the latest research on best practice. 
+The driver for this project is that there have been particularly successful
+nurse-led electronic decision support tools in overseas contexts.
+The clients would like to develop a tool for the Australian setting. The focus would be on
+adherence to guidelines for medication and lifestyle. The tool would facilitate 
+discussions and give illustrations of risk so that participants could make informed choices
+about treatment in consultation with a skilled clinical nurse. The interface needs to be
+acceptable to older participants. It could be on a web browser or a mobile app.
+A tablet would be ideal for older people. 
+
+<p/>
+The clients include a researcher from
+a major international study and he would be involved in
+the development of this proposed tool (see the link below to the main findings). The guidelines
+are international, but the Australian healthcare system is quite different, so there are
+both opportunities and hurdles here we need to overcome!
+<p/>
+Students will be able to work with nurses and consumers, to really have an impact.
+
+
+<br/>
+<b>Additional information</b>: 
+<a
+href="http://eurheartj.oxfordjournals.org/content/early/2012/03/27/eurheartj.ehs071.short">
+Promising results from overseas</a> - for example, paraphrasing, with the planned form of
+nurse-led care 1.1% died compared with 3.9% with usual care.
+
+</a>
+<br/>
+
+<b>Location</b>: Sydney University.
+<br/>
+<b>Pre-requisites</b>: HCI, Web development for multiple devices.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPNutrition"><img id="IMGNutrition"  onclick="javascript: expandCollapse('Nutrition');" title="expand/collapse">&nbsp;&nbsp;Campus: First Australian food logger, tackling chronic disease </div>
+        <script> var elt = document.getElementById("IMG"+"Nutrition"); elt.src = cell_long; $("#TIPNutrition img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Nutrition" style="display: none;">
+<b>Contact</b>: Margaret Allman-Farinelli,
+<br/>
+<b>Description</b>: 
+
+This project gives you an opportunity to make use of a new database of
+Australian foods and their nutritional breakdown,
+to create an iphone app that will help tackle 
+obesity and chronic diseases.
+These diseases cause immense suffering by individuals and also
+place enormous financial pressure on economies such as Australia.  
+However, it is possible to reduce their impact with changes to be lifestyle.
+Importantly, diet is a key for 
+prevention and treatment of many chronic diseases.
+If people can easily log their food, this can provide the foundation
+for helping them improve their diets.
+Unfortunately, traditional methods of measuring diet have many disadvantages. 
+But new technologies should change this by making it very
+easy for a person to record the food they eat, on the spot, when they eat.
+This is valuable to share with their health care practitioner. 
+<p/>
+The aim of
+this project is to produce the first iphone app that will make use of the new
+database of Australian foods loaded (released May 2014). The app must
+have usability testing for both the participant who will use it and the
+health professional that will need a back end to assess the nutritional
+content and quality and make recommendations. The real challenge here
+is in making the search of the almost 5000 food varieties easy.
+This is a chance to work with the client and her team of nutrition experts
+to explore creative ways to make it fun and easy to record food eaten.
+The app will also help people easily estimate their portion size accurately.
+This might make use of short
+videos and other approaches that you test with people.
+
+<br/>
+
+<b>Location</b>: Sydney University.
+<br/>
+<b>Pre-requisites</b>: HCI, Web development for multiple devices.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPGas_risk"><img id="IMGGas_risk"  onclick="javascript: expandCollapse('Gas_risk');" title="expand/collapse">&nbsp;&nbsp;Campus: Gas Risk Calculator for workplace safety </div>
+        <script> var elt = document.getElementById("IMG"+"Gas_risk"); elt.src = cell_long; $("#TIPGas_risk img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Gas_risk" style="display: none;">
+<b>Contact</b>: Sandra Chapman
+
+<br/>
+<b>Description</b>: 
+
+Compressed gases and cryogenic liquids can pose as a major hazard in the
+laboratory environment as there is a risk of oxygen depletion and
+asphyxiation, oxygen enrichment and fire or harmful health effects. To assist
+workers in determining the risk of these materials in the workspaces at the
+University of Sydney, Safety Health and Wellbeing wish to create a web based
+tool that will calculate oxygen levels when there has been a catastrophic
+release of gas. 
+<p/>
+Currently there is a Microsoft Excel based tool which contains five
+calculation spreadsheets for different risk scenarios. 
+This project is aimed at transferring the spreadsheet calculations to a web
+based interface. 
+<br/>
+Please see
+<a
+href="http://www.it.usyd.edu.au/~comp3615/2014/Project_docs/Gas_risk_calculator.docx">
+additional details</a>.
+<br/>
+
+<b>Location</b>: Sydney University.
+<br/>
+<b>Pre-requisites</b>: Familiarity with spreadsheets and web development.
+IP agreement.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPcampus_physics"><img id="IMGcampus_physics"  onclick="javascript: expandCollapse('campus_physics');" title="expand/collapse">&nbsp;&nbsp;Campus: Web-based Booking System for Senior Physics Laboratory </div>
+        <script> var elt = document.getElementById("IMG"+"campus_physics"); elt.src = cell_long; $("#TIPcampus_physics img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="campus_physics" style="display: none;">
+<b>Contact</b>: Xue Yang
+<br/>
+<b>Description</b>:
+In each semester, the School of Physics offers over 30 different experiments in Senior Physics
+Laboratory for the students (about 90 registered for doing lab) to undertake and to earn
+certain credit points.
+<p/>
+In doing Software Development project two years ago, a group of IT students from School of IT,
+developed a web-based booking system for Senior Physics Lab. The system was written in ruby on
+rails, a well-known web application development framework.
+<p/>
+The developed system serves three types of users: students (registered for doing experiments
+in the Lab), tutors (about 10 academic staff members in physics marking students' work)
+and administrator (laboratory manager).
+<p/>
+Students use the system to book times for doing some experiments and to view marks of their
+work. Tutors use it to record the marks of students' work. Admin uses it to manage
+students, tutors, experiments, students' booking, work and marks.
+<p/>
+The system is at the point of its development cycle where after its preliminary usage for the
+lab, the client brings the feedback to the developers and requests for its further
+improvement. Here listed are a few but not all issues,
+<p/>
+&#8211; Make on-line booking more fairly among all students.<br/>
+&#8211; Manage the experiments with different timetables<br/>
+&#8211; Add scheduling function for students' final presentations<br/>
+&#8211; Add email facilities.
+<p/>
+As software developers, you are expected to confidently response to our requests.
+In doing this project, the students will be able to quickly gain skills in Ruby-on- Rails and
+MySQL because the code of system mainframe is already available. The students will also have
+an opportunity to conquer more challenging problems based on the first version of the system.
+
+
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+See above
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPRateIT"><img id="IMGRateIT"  onclick="javascript: expandCollapse('RateIT');" title="expand/collapse">&nbsp;&nbsp;Campus: RateIT, crowdsourced real-time app to improve the passenger experience </div>
+        <script> var elt = document.getElementById("IMG"+"RateIT"); elt.src = cell_long; $("#TIPRateIT img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="RateIT" style="display: none;">
+<b>Contact</b>: 
+Claudine Moutou
+<br/>
+<b>Description</b>: 
+Real-time timetable information has helped to reduce some of the uncertainty of using
+public transport but the other uncertainties such as crowding, comfort and frustrating
+experiences also have a significant influence on people's travel choices. The RateIT
+project involves working with transport researchers, a bus operator, and real-time
+transport information to develop a real-time app that demonstrates the value of engaging
+passengers and transport operators about the quality of public transport in real-time.
+
+The RateIT project involves designing and developing a working online app that can be used
+to collect and disseminate crowdsourced passenger-to-passenger information in real-time
+and to design and develop the back-end systems that will enable transport operators to
+capture, interact and respond to real-time information provided by passengers about
+service quality and passenger experience. The project involves testing of the online app
+and back-end systems during a one month field trial with bus passengers.
+
+<br/>
+<b>Additional information</b>: 
+<a
+href="http://www.it.usyd.edu.au/~comp3615/2014/Project_docs/Functional%20Scope%20of%20the%20RateIT%20online%20app%20v1.pdf">
+Functional Scope of the RateIT online app
+</a>
+<br/>
+
+<b>Location</b>: Sydney University.
+<br/>
+<b>Pre-requisites</b>: HCI, Web development for multiple devices.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPcampus_student"><img id="IMGcampus_student"  onclick="javascript: expandCollapse('campus_student');" title="expand/collapse">&nbsp;&nbsp;Campus: Support of Student Experience via UX, IA & AI </div>
+        <script> var elt = document.getElementById("IMG"+"campus_student"); elt.src = cell_long; $("#TIPcampus_student img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="campus_student" style="display: none;">
+<b>Contact</b>: Corinne Caillaud and
+Sonya Corcoran
+<br/>
+<b>Description</b>:
+A/Prof Corinne Caillaud, Dr Sarah Lewis, Dr Melanie Nguyen, Dr Debra Shirley, Tina Barclay and
+Xuan Luu are the 2014 Vice-Chancellor Award Winners for their project, Belong@FHS: Peer
+Mentoring Across the Faculty of Health Sciences. We will extend on this success by expanding
+the support of the student experience through use of advanced material design, information
+architecture and adaptive interaction.
+<p/>
+The aim of our proposed project is to use the student support principles from our experiences
+to create a very special, dynamic, intuitive way of communicating between students across all
+years of study and their University. We are thinking of a tool (App or web based) using
+various aspects of user experience and information architecture designs to create a unique
+interface between users (students) and the organisation (The University).  While you and your
+team will be designing this tool, our role will be in the content design, implementation and
+evaluation. The substantial software system designed by you will be promoted at conferences
+with the aim of nation-wide implementation, ideally, with the support of the Office of
+Learning & Teaching.
+<p/>
+As a client, we will provide an Educational Designer with a background in UX to facilitate
+requirements gathering, prototyping, user testing and exploring foundations of sensing,
+learning, decision making, search & retrieval, and human-computer interaction of this system.
+The ultimate aim is to refine collaborative filtering (CF) algorithms and methods for
+recommending content to students based on the analysis of the behaviour of a large number of
+their peers. Note, this is not a website re-design but a transformative approach to the
+student experience.
+
+
+<br/>
+
+Links:
+<a href="https://itunes.apple.com/au/app/leadership-pour-elles/id843364353?mt=8">
+Ministry for Women's Rights: Leadership App</a>
+<br/>
+
+
+<b>Location</b>: Sydney University, Faculty of Health Sciences. (Cumberland campus)
+<br/>
+<b>Desirable skills:</b>: 
+Curiosity, HCI, gamified user experience, mutli-platform
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPTopic_model"><img id="IMGTopic_model"  onclick="javascript: expandCollapse('Topic_model');" title="expand/collapse">&nbsp;&nbsp;Campus: Topic Modelling and Network Mapping Expertise in SIT </div>
+        <script> var elt = document.getElementById("IMG"+"Topic_model"); elt.src = cell_long; $("#TIPTopic_model img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Topic_model" style="display: none;">
+<b>Contact</b>: 
+James Flynn and
+Christina Kirsch
+<br/>
+<b>Description</b>:
+This project aims to improve the knowledge linkages between academics, corporations and
+government. Finding subject matter experts is a time and resource intensive task for
+businesses and individuals alike. We want to use sophisticated topic modeling algorithms
+to gauge the expertise of different researchers and academics and manifest this
+information through an online portal. To ensure this information is easily accessible the
+portal intends to represent a visual interactive network map alongside an optimized search
+function.
+
+<br/>
+
+Links:
+<a
+href="http://rp-www.cs.usyd.edu.au/~comp3615/2014/Project_docs/Topic.docx">
+Additional information</a>
+<br/>
+
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+see additional information
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPcampus_virtual"><img id="IMGcampus_virtual"  onclick="javascript: expandCollapse('campus_virtual');" title="expand/collapse">&nbsp;&nbsp;Campus: Virtual journey </div>
+        <script> var elt = document.getElementById("IMG"+"campus_virtual"); elt.src = cell_long; $("#TIPcampus_virtual img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="campus_virtual" style="display: none;">
+<b>Contact</b>: Jim Cook
+<br/>
+<b>Description</b>:
+<br/>
+This project consists of:
+<br/>
+&#8211; A scalable database of resources which will include 3D Models, Images, Video and Audio tracks
+(predefined formats is fine) linked with the following attributes: latitude, longitude,
+Audience(male, female, age, indigenous status), description,
+<br/>
+&#8211; A Method for uploading and tagging those resources. (admin interface)
+<p/>
+Two Interfaces use:
+<br/>
+
+&#8211; A facilitator interface in which they draw a path on a map, and resources geographically
+located nearby appear as small icons/popups.
+<br/>
+
+&#8211; A User interface which allows other people in the room to interact with the resources
+independent of the facilitator. In order to appropriately present data the user interface must
+require users to input gender, indigenous status and age.
+<p/>
+
+Other required features:
+<br/>
+
+&#8211; Override ability for the facilitator to share content.
+<br/>
+
+&#8211; Touch Appropriate interface.
+<br/>
+
+&#8211; Metrics of what users interact with.
+<br/>
+
+&#8211; Optional: (design preset paths for facilitator interface in the admin interface)
+
+<br/>
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+See above
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPwePlan"><img id="IMGwePlan"  onclick="javascript: expandCollapse('wePlan');" title="expand/collapse">&nbsp;&nbsp;Campus: wePlan - iPad app for Public Participation in Built Environment Decisions </div>
+        <script> var elt = document.getElementById("IMG"+"wePlan"); elt.src = cell_long; $("#TIPwePlan img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="wePlan" style="display: none;">
+<b>Contact</b>: Mohammad Khan
+<br/>
+<b>Description</b>:
+This app will facilitate end-users of built environment to contribute informed opinions in
+the decision-making process leading up to the design and construction of built environment
+projects. A key feature is the use of geo-located augmented reality technology (GAR), to
+allow non-experts to view design proposals in a format that is closer to their lived
+experience and therefore readily comprehendible. 
+
+<br/>
+
+IT Components
+This project involves five core components of user-interface (UI) development:
+communication considerations;
+technical infrastructure;
+advanced interactive features;
+iOS coding;
+PHP/HTML setup.
+A standard usability test will be conducted to ascertain the performance of the final product
+in actual deployment conditions. 
+<br/>
+
+<b/>Links:</b>
+<a href="https://sites.google.com/site/weplanwebsite/home">detailed description</a>
+and
+<a href="https://sites.google.com/site/weplanwebsite/ui-develoment">
+description of components</a>
+<br/>
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+See above links.
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPfreelancer"><img id="IMGfreelancer"  onclick="javascript: expandCollapse('freelancer');" title="expand/collapse">&nbsp;&nbsp;Freelancer: learn new life skills </div>
+        <script> var elt = document.getElementById("IMG"+"freelancer"); elt.src = cell_long; $("#TIPfreelancer img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="freelancer" style="display: none;">
+<b>Contact</b>: Willix Halim 
+and David Harrison 
+<br/>
+<b>Description</b>:
+<p/>
+Problem to solve:
+<br/>
+The developing world is rapidly gaining access to the Internet, the first thing they want to
+do when connected is to get a job and earn money. In order to earn money they need the
+education required to perform a satisfactory level of work and there needs to be some evidence
+for potential employers that the freelancers they are hiring possess the skills required. 
+<p/>
+This project aims to take advantage of the large community of Freelancer.com and allow them to
+learn new skills, and showcase their new knowledge to aid them in finding new work in areas
+they couldn’t before.
+
+Current Standing:
+Freelancer.com offers a service wherein users can take exams to verify their skills
+All questions require multiple choice answers
+Freelancers can currently suggest questions which may appear in future exams, but the
+questions need to be manually reviewed and updated by Freelancer.com staff
+<p/>
+Goals: 
+<br/>
+Create a new standalone service where users can take courses to learn new life skills, find a
+wider range of work on Freelancer.com by showcasing these skills, and expand their knowledge
+into areas not possible for them before, at less cost than a traditional educational
+institution
+Integrate this course/exam service with existing Freelancer.com so that users are able to
+showcase their skills when applying for jobs
+Allow a system where exams are completely crowd sourced by the community
+Implement online courses tailored to teach the material examined in exams
+Allow courses to also be crowdsourced and curated by the community
+
+<b>Location</b>: Freelancer Limited, Level 20 680 George Street, Sydney, NSW, 2000
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPApprove_RNS"><img id="IMGApprove_RNS"  onclick="javascript: expandCollapse('Approve_RNS');" title="expand/collapse">&nbsp;&nbsp;Kolling Institute: APProve Clinical Trial Application </div>
+        <script> var elt = document.getElementById("IMG"+"Approve_RNS"); elt.src = cell_long; $("#TIPApprove_RNS img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Approve_RNS" style="display: none;">
+<b>Contact</b>: Jason Bentley
+<br/>
+<b>Description</b>: 
+
+APProve is a double-blind randomised clinical trial that aims to assess the effectiveness of using probiotics to
+prevent infection in breastfeeding women during the first two months after giving birth. To support this trial, a
+smart phone application (APProve-App) is required to collect information critical to administering and running
+the trial as well as being a source of information about the trial to participants. Information collected will
+include; date of delivery and discharge, clinical symptoms of infection (trial outcome), and compliance with
+treatment regimen. The application should also support compliance with the treatment and information collection
+by providing reminders and instructions where required. The application must "evolve" through three stages; trial
+recruitment, treatment allocation and treatment. The application should be intuitive and easy to use and look
+appropriate for a professional medical clinical trial. The application should be robust to differing versions of
+iOS and Android systems and be capable of sending collected information daily, in a form suitable for integration
+with a centralised trial SQL database.
+<br/>
+<b>Links</b>: 
+<a
+href="http://www.it.usyd.edu.au/~comp3615/2014/Project_docs/APProve_Clinical_Trial_Application.pdf">
+Additional details</a>
+<br/>
+
+<b>Location</b>: University Department of Obstetrics,
+Building 52, Royal North Shore Hospital, St Leonards, NSW 2065
+<br/>
+<b>Pre-requisites</b>: HCI, Web development for multiple devices.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPKolling_patient_exp"><img id="IMGKolling_patient_exp"  onclick="javascript: expandCollapse('Kolling_patient_exp');" title="expand/collapse">&nbsp;&nbsp;Kolling Institute: patient experience </div>
+        <script> var elt = document.getElementById("IMG"+"Kolling_patient_exp"); elt.src = cell_long; $("#TIPKolling_patient_exp img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Kolling_patient_exp" style="display: none;">
+<b>Contact</b>: Karyn Joyner
+<br/>
+<b>Description</b>:
+
+The Kolling Institute of Medical Research is a leading centre of health and medical research in NSW.
+It aims to uncover the basis of disease and translate that knowledge to the clinic to better
+patient health and wellbeing.
+Its research is broad, encompassing "lifespan" conditions including:
+pregnancy and childbirth to
+cancer and genetics,
+kidney and heart disease,
+pain and neurological disorders,
+diseases of bones and joints and
+tissue regeneration.
+<p/>
+This project aims to create software to collect performance metrics.
+Discussions with the client will be key in identifying diverse ways to do this effectively.
+These include ways to collect better data about the patient experience,
+ranging from simple feedback to patient stories.
+At a quite different level, the project aims to capture more formal impact of
+publications.
+
+
+
+<br/>
+
+Links:
+<a href="http://www.kolling.usyd.edu.au/about/index.php">
+Kolling website</a>
+<br/>
+
+
+<b>Location</b>: University Department of Obstetrics, Building 52, Royal North Shore
+Hospital, St Leonards, NSW 2065
+<br/>
+<b>Desirable skills:</b>: 
+Web development foundations.
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPKolling_patient_informedp"><img id="IMGKolling_patient_informedp"  onclick="javascript: expandCollapse('Kolling_patient_informedp');" title="expand/collapse">&nbsp;&nbsp;Kolling Institute: patient informed healthcare </div>
+        <script> var elt = document.getElementById("IMG"+"Kolling_patient_informedp"); elt.src = cell_long; $("#TIPKolling_patient_informedp img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Kolling_patient_informedp" style="display: none;">
+<b>Contact</b>: Natasha Nassar
+<br/>
+<b>Description</b>:
+
+This project aims to create a portal that helps patients become well informed partners
+in their medical care and decision making.
+For example, a pregnant woman may need to consider many options, such as those
+relating to pre-natal screening, medications, delivery options.
+Kolling conducts research and clinics in a broad range of "lifespan" conditions
+and many call for decisions that can be challenging for patients.
+</>
+Working with the client, the team would create a web site that enables the staff
+to flexibly create materials that a patient can work through,
+at their own pace, considering the options and information relating to their
+decision options.
+This can serve as a foundation for consultations with the medical staff.
+
+
+
+<p/>
+
+Links:
+<a href="http://www.kolling.usyd.edu.au/about/index.php">
+Kolling website</a>
+<br/>
+
+
+<b>Location</b>: University Department of Obstetrics, Building 52, Royal North Shore
+Hospital, St Leonards, NSW 2065 
+<br/>
+<b>Desirable skills:</b>: 
+HCI, Web development foundations.
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPEventPwC"><img id="IMGEventPwC"  onclick="javascript: expandCollapse('EventPwC');" title="expand/collapse">&nbsp;&nbsp;PwC Australia: Event Management System </div>
+        <script> var elt = document.getElementById("IMG"+"EventPwC"); elt.src = cell_long; $("#TIPEventPwC img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="EventPwC" style="display: none;">
+<b>Contact</b>: Robert Love 
+<br/>
+<b>Project description</b>: 
+Large corporations and government organisations want to innovate but
+don't often get the opportunity to engage with innovators in a
+meaningful way. PwC's Innovation team have developed a process
+called Open Innovation. Combining aspects of Design Thinking, Lean
+Startup methodologies, Jobs to be Done theory, the Hackathon and the
+Startup Weekend - Open Innovation brings together industry experts and
+the startup and developer communities to create solutions to problems
+worth solving. In order to be able to manage and market this process
+effectively, we need an Event Management System that satisfies the
+requirements of both internal and external stakeholders - baking in the
+unique privacy and security requirements of our top-tier clients - and
+leveraging the latest web and mobile technologies to make the entire
+workflow - from creation and registration, to attendance and follow-up
+(and everything in-between) - as smooth and customer-friendly as
+possible.
+<br/>
+
+<b>Location</b>: PwC Sydney, Darling Park Tower 2, 201 Sussex Street, SYDNEY NSW 2000, Australia
+<br/>
+<b>Pre-requisites</b>: 
+Experience developing applications using Git/GitHub, AWS, Heroku,
+PostgreSQL, Ruby on Rails, HTML5 (using Twitter Bootstrap), CSS3 (using
+Sass), JavaScript (using jQuery), iOS and Android is preferred but not
+essential.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPIdentityPwC"><img id="IMGIdentityPwC"  onclick="javascript: expandCollapse('IdentityPwC');" title="expand/collapse">&nbsp;&nbsp;PwC Australia: Identity Management System </div>
+        <script> var elt = document.getElementById("IMG"+"IdentityPwC"); elt.src = cell_long; $("#TIPIdentityPwC img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="IdentityPwC" style="display: none;">
+<b>Contact</b>: Robert Love 
+<br/>
+<b>Project description</b>: How do I know I have the most up-to-date contact information in my contacts list? How do I know my
+contacts have the most up-to-date contact information for me? When I change my contact information, how can I easily
+let all my contacts know - including service providers like Telstra, Energy Australia, my banks, etc..? Is a
+centralised Identity Management System the answer? The PwC Digital Ventures team (PwC's internal startup incubator)
+wants to help you explore these problems. Using Lean Startup methodologies, Jobs to be Done theory, and an Agile
+Development approach - this is your chance to come up with a solution that can become a viable and profitable new
+business.
+<br/>
+
+<b>Location</b>: PwC Sydney, Darling Park Tower 2, 201 Sussex Street, SYDNEY NSW 2000, Australia
+<br/>
+<b>Pre-requisites</b>: Experience developing applications using Git/GitHub, AWS, Heroku, PostgreSQL, Ruby on Rails, HTML5
+<br/>
+(using Twitter Bootstrap), CSS3 (using Sass), JavaScript (using jQuery), iOS and Android is preferred but not
+essential.
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPstartUpBooking"><img id="IMGstartUpBooking"  onclick="javascript: expandCollapse('startUpBooking');" title="expand/collapse">&nbsp;&nbsp;Startup: web based booking engine </div>
+        <script> var elt = document.getElementById("IMG"+"startUpBooking"); elt.src = cell_long; $("#TIPstartUpBooking img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="startUpBooking" style="display: none;">
+<b>Contact</b>: Mitchell Kardan
+<br/>
+<b>Description</b>:
+A rare opportunity to join an early startup venture in its infancy. The project would consist
+of developing a web based booking engine for a new and emerging industry. The site would
+allow users to browse, book, purchase (via Stripe), rate and review products. There would
+also be a supplier portal implementation for secure login and management. The project would
+allow students to gain complete web design experience from beginning to end, including
+database design, frontend development, security, scalability, payment integration, etc. The
+choice of technology would be completely open to the students' discretion, other than the
+requirement of mySQL for the backend. Students would join a very entrepreneurial environment
+where they would be given creative flexibility and encouraged to incorporate their own ideas
+into the design. Not only would students be able to put their names to a working commercial
+product but also be given the chance to network with professionals across the IT industry.
+<br/>
+
+Links:
+As a guide this 
+<a href="http://hostelworld.com/">site</a>
+is similar in desired functionality but in a different industry.
+<br/>
+
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+See details above.
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPstartup_chairhound"><img id="IMGstartup_chairhound"  onclick="javascript: expandCollapse('startup_chairhound');" title="expand/collapse">&nbsp;&nbsp;Startup: Chairhound - Connecting People, Services and Locations </div>
+        <script> var elt = document.getElementById("IMG"+"startup_chairhound"); elt.src = cell_long; $("#TIPstartup_chairhound img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="startup_chairhound" style="display: none;">
+<b>Contact</b>: Luke Fries
+<br/>
+<b>Description</b>:
+Chairhound is a new company which aims to bring payment processing, booking and schedule
+management to sole traders, entrepreneurs and small businesses. We have already developed a
+prototype web-based system that gives physical service providers the ability to manage their
+bookings, take payments from customers, manage staff members and services provided. Our
+software also allows customers to log on and book any service provider at an approved
+location. We have done extensive market research and approximately 3 months of development on
+our product, your team will work alongside our development team to get our product interface
+to the next level.
+<p/>
+You and your team will be responsible for front-end design/implementation for the web-app, as
+well as building prototype mobile applications. This project is ideal for students who love
+app development and/or website design, or those who wish to gain experience working at a
+funded startup with strong growth potential. The project will be supervised by Luke Fries
+(USyd - Electrical Engineering) and Danny Bhandari (former CEO and Founder of Tibra Capital).
+
+<br/>
+
+<b>Location</b>: Moore Park office suite (Fox Studios),
+<br/>
+<b>Desirable skills:</b>: 
+Familiar with MVC paradigm, experience with Ruby on Rails (preferred) or similar (PHP,
+python), RESTful APIs, AWS, postgresql and git, experience with front-end development using
+HTML5/CSS3/JS and a front-end framework like Twitter Bootstrap, experience with graphic
+design/UX preferred but not essential, and experience with any of the following: Android app
+development, iOS app development, mobile development frameworks like Phonegap.
+
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPCloudHerd"><img id="IMGCloudHerd"  onclick="javascript: expandCollapse('CloudHerd');" title="expand/collapse">&nbsp;&nbsp;Startup: CloudHerd, buy and sell cattle online. </div>
+        <script> var elt = document.getElementById("IMG"+"CloudHerd"); elt.src = cell_long; $("#TIPCloudHerd img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="CloudHerd" style="display: none;">
+<b>Contact</b>: Alexander Stamp
+<br/>
+<b>Description</b>:
+CloudHerd is a company that allows farmers to buy and sell cattle online.
+As part of the CloudHerd project students will develop modern web skills
+in caching, database and model schema and see how software systems can
+affect diverse industries. The work is a balance of front end
+engineering, developer operations and back end engineering which will
+suit a diverse team looking to make a difference in how people eat every
+day.
+<br/>
+
+Links:
+<a
+href="http://www.it.usyd.edu.au/~comp3615/2014/Project_docs/CloudHerd_Stamp.docx">
+Detailed information</a>
+<br/>
+
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+See detailed information above.
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPDidgeepop"><img id="IMGDidgeepop"  onclick="javascript: expandCollapse('Didgeepop');" title="expand/collapse">&nbsp;&nbsp;Startup: Didgeepop, digital receipt management platform </div>
+        <script> var elt = document.getElementById("IMG"+"Didgeepop"); elt.src = cell_long; $("#TIPDidgeepop img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Didgeepop" style="display: none;">
+<b>Contact</b>: Paul Russell
+<br/>
+<b>Description</b>:
+Didgeepop is a start-up, just 6 months old.
+In this project, you will build a prototype for a digital receipt management
+platform. This aims to replace existing paper receipts at the point of
+sale during retail shopping. We have already agreed on a digital receipt
+standard with a global standards body (GS1) and this will be the basis for the
+design.
+<p/>
+The solution will include mobile apps (built using
+http://www.telerik.com/platform) and a backend webservice platform. 
+The preferred technology is the Zend Framework and PHP
+but open to other languages (Java, C# etc.) being used. 
+We also want the design to enable the solution to be white-labelled
+so a strong architecture is required. 
+We also provide full use of Amazon Webservice (AWS)
+technology and would like the solution to include DynamoDB
+(http://aws.amazon.com/dynamodb/) for performance.
+<p/>
+Be part of an actual real-life start-up and a truly disruptive technology and who
+knows where you will end up as we will be fund raising during this time and
+looking to launch later in the year.
+
+
+<br/>
+<b>Location</b>: Flexible. Will do Uni visits once a week and always
+available via email and phone. Would like to try Google Hangout as well if
+desired.
+<br/>
+<b>Desirable skills:</b>: 
+Strong solution architecture skills, UX design, mobile app design, strong
+technical skills and most importantly can work well in a team and work in an agile
+environment.
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPiResident"><img id="IMGiResident"  onclick="javascript: expandCollapse('iResident');" title="expand/collapse">&nbsp;&nbsp;Startup: iResident, improving hospital efficiency </div>
+        <script> var elt = document.getElementById("IMG"+"iResident"); elt.src = cell_long; $("#TIPiResident img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="iResident" style="display: none;">
+<b>Contact</b>: Martin Seneviratne
+<br/>
+<b>Description</b>:
+iResident is a task management platform tailored for hospital wards. Designed to be carried with the doctor,
+nurse, physio or social worker as they do their morning ward round, the app uses standardised checklists to
+ensure tasks are not missed. The aim is to enhance efficiency, interdisciplinary collaboration and accountability
+in the hospital ward.
+<br/>
+
+The iResident founding team consists of a medical doctor and software engineer from the University of Sydney. The
+concept has been recognised with innovation awards from the Health Roundtable and the Healthcare Informatics
+Society of Australia.
+<br/>
+
+We are looking for a creative team of software developers to help bring this concept to life and create a real
+product to be piloted in our partner hospital sites.
+
+<br/>
+
+Links:
+<a href="https://www.youtube.com/watch?v=Jm98RxvkHmU">Youtube<a/> |
+<a href="http://blogs.hbr.org/2013/11/a-remedy-for-fragmented-hospital-care/">Blog</a>
+<br/>
+
+
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+Web development, ideally Ruby on Rails,
+Database setup and management,
+Local area network admin,
+Unit testing and code review
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPInfrasis"><img id="IMGInfrasis"  onclick="javascript: expandCollapse('Infrasis');" title="expand/collapse">&nbsp;&nbsp;Startup: Infrasis quality management system </div>
+        <script> var elt = document.getElementById("IMG"+"Infrasis"); elt.src = cell_long; $("#TIPInfrasis img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Infrasis" style="display: none;">
+<b>Contact</b>: Daniel Cannavo
+<br/>
+<b>Description</b>:
+Infrasis is developing a Quality Management System (QMS) with an
+integrated communication (real-time status-reporting) system for a large
+publicly listed property developer. The system enables quality inspections
+on construction projects to be stored on the cloud, eliminating paperwork
+on-site and establishing accountability. Your team will be required to
+develop the web-application component of the system enabling set-up
+and administration of projects as well as communicating all relevant
+information to project participants.
+
+
+<br/>
+<b>Location</b>: University of Sydney for client meetings 
+<br/>
+<b>Desirable skills:</b>: 
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPMeta1"><img id="IMGMeta1"  onclick="javascript: expandCollapse('Meta1');" title="expand/collapse">&nbsp;&nbsp;Startup: Meta Panels, The Minority Report and Iron Man Workstation </div>
+        <script> var elt = document.getElementById("IMG"+"Meta1"); elt.src = cell_long; $("#TIPMeta1 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Meta1" style="display: none;">
+<b>Contact</b>: Prof. Stefano Baldassi and Elliot Diebold
+<br/>
+<b>Description</b>:
+This is a project to build the ultimate holographic workstation. An app
+currently exists in the glasses that provides the ability to create an
+unlimited number of holographic iPads, that could display video, text,
+web pages or apps. The project is to connect many web services to these
+panels (think top 20 websites) and place them in the environment in a
+de-cluttered way. Prof. Baldassi's expertise is in visual perception
+and performance and he will guide you through running experiments on how
+to increase the quantity of information in the environment without
+overwhelming the user. The interface you build will resemble these
+graphics: 
+<a href="http://youtu.be/7SFeCgoep1c?t=22s">
+http://youtu.be/7SFeCgoep1c?t=22s<a/>,
+<a href="http://youtu.be/YAXsZphpiu8?t=3m37s">
+http://youtu.be/YAXsZphpiu8?t=3m37s</a>
+<br/>
+<p/>
+This app is ideally suited to students interested in:
+<ul> 
+<li> the human visual system </li>
+<li> APIs </li>
+<li> power user interfaces </li>
+</ul>
+Prior to Meta Prof. Baldassi was a visiting professor at Stanford where
+he specialised in the understanding of depth perception within visual
+interfaces. There are over 11 cues your mind uses to understand depth
+(focus, convergence, movement, occlusion and many others). Prof.
+Baldassi will guide you in addressing these depth cues so you can create
+beautiful and highly functional layered interfaces. Elliot Diebold is a
+Sydney University alum and Meta Engineer.
+The project will be built in Unity3D using C#. You will be supplied with
+graphics assets, and only programming is required, however we welcome
+creative extensions that fit within the subject outcomes.
+
+
+<b>Location</b>: Meetings will be electronic only as the client is in
+the US.
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: INFO3600 only
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPMeta2"><img id="IMGMeta2"  onclick="javascript: expandCollapse('Meta2');" title="expand/collapse">&nbsp;&nbsp;Startup: Meta, Collaborative Hologram Viewer & Sculptor </div>
+        <script> var elt = document.getElementById("IMG"+"Meta2"); elt.src = cell_long; $("#TIPMeta2 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Meta2" style="display: none;">
+<b>Contact</b>: 
+Soren Harner & Joseph Wang,
+<br/>
+<b>Description</b>:
+Build the 3D model viewer from Avatar
+<a href="http://youtu.be/3PuXMBXSAOc?t=49s">
+(http://youtu.be/3PuXMBXSAOc?t=49s)</a>
+and Iron Man
+<a href="http://youtu.be/mRi1dmFgRfo?t=40s">
+(http://youtu.be/mRi1dmFgRfo?t=40s</a>).
+Meta is the first full 3D system. 3D input and 3D output. The most
+requested application for Meta is the ability to take the output of
+every 3D design package (AutoCad, 3D Studio Max, Maya, Blender, etc.)
+and visualize it in on the table in front of you or floating in the
+space around you. You will refine and extend the killer ability of Meta:
+to allow multiple people to visualize and interact with the same 3D
+content.
+
+<br/>
+<p/>
+This project is ideally suited to students interested in:
+<ul> 
+<li> 3D design tools </li>
+<li> collaborative user interfaces </li>
+</ul>
+Soren Harner, Meta's VP Engineering, was VP Engineering at both
+Atlassian and Big Commerce, where he grew each company from 10 engineers
+to 100. His experience in fostering high quality engineering principles
+led the companies to a combined $4Bn valuation. Joseph Wang is a Sydney
+Uni Alum and Meta Engineer.
+<p/>
+The project will be built in Unity3D using C#. You will be supplied with
+graphics assets, and only programming is required, however we welcome
+creative extensions that fit within the subject outcomes.
+<br/>
+
+<b>Location</b>: Meetings will be electronic only as the client is in
+the US.
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: INFO3600 only
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPMeta3"><img id="IMGMeta3"  onclick="javascript: expandCollapse('Meta3');" title="expand/collapse">&nbsp;&nbsp;Startup: Meta, Remote Assistance - See Through the Eyes of Another  </div>
+        <script> var elt = document.getElementById("IMG"+"Meta3"); elt.src = cell_long; $("#TIPMeta3 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Meta3" style="display: none;">
+<b>Contact</b>: 
+Agis Mesolongitis & Neb Zelenovic
+
+<br/>
+<b>Description</b>:
+You will create the ability to see through another person's eyes and
+guide them, by overlaying holograms onto their view. The remote
+assistance application has been requested by an incredible variety of
+people, including: national space agencies, power station operators,
+premium car companies, piano instructors and doctors working in the
+developing world. Essentially any use case where an expert is at a
+distance from where their expertise is needed.
+<p/>
+The app you build will allow wearers of the Meta glasses to supply a
+link to a person working remotely from them. That link opens a web page
+showing a video feed from the glasses. The web user can drag holograms
+and panels into the view of the person they are assisting. Imagine a 3D
+overlay of human anatomy being transmitted to a doctor so it appears
+above the patient they are operating on, or a hovering holographic 3D
+marker arriving above the real switch an astronaut should flip to open
+the correct airlock.
+<p/>
+This project is ideally suited to students interested in:
+<ul> 
+<li> real time network technologies </li>
+<li> computer vision </li>
+<li> cutting edge web development and design </li>
+</ul>
+This project is led by Agis Mesolongitis a Senior Engineer and PhD
+student in computer vision, and Meta Engineer and Sydney University
+alum, Neb Zelenovic
+<p/>
+The project will be built in Unity3D using C#. You will be supplied with
+graphics assets, and only programming is required, however we welcome
+creative extensions that fit within the subject outcomes.
+
+<br/>
+<b>Location</b>: Meetings will be electronic only as the client is in
+the US.
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: INFO3600 only
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPMeta4"><img id="IMGMeta4"  onclick="javascript: expandCollapse('Meta4');" title="expand/collapse">&nbsp;&nbsp;Startup: Meta, My First Hologram - Meta Tutorial Game </div>
+        <script> var elt = document.getElementById("IMG"+"Meta4"); elt.src = cell_long; $("#TIPMeta4 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Meta4" style="display: none;">
+<b>Contact</b>: 
+Carolyn Farino & Ben Sand
+
+<br/>
+<b>Description</b>:
+You will build the first interactions every user sees when wearing the
+Meta. Your tutorial game will train them on our how use the Meta 3D
+holographic user interface. How to grab, move, and rotate 3D holograms.
+How to touch buttons and move 2D panels. You will focus on building
+interaction techniques with Carolyn using 3D assets built by Jayse
+Hansen. You will be guided to recreate the visual styles and teach
+interactions seen in Ender's Game (one of our UI designer
+Jayse's projects). 
+
+<a href="https://www.youtube.com/watch?v=003QxSocTLE">
+https://www.youtube.com/watch?v=003QxSocTLE</a>
+<p/>
+You will build a 2-3 minute game that introduces people to the features
+of Meta and the powerful new interaction techniques possible in 3D. You
+will learn from how the first few levels of Portal reveal new
+interaction techniques and apply these strategies to a full gestural 3D
+interface.
+<p/>
+This project is ideally suited to students interested in:
+<ul> 
+<li> intelligent tutoring systems </li>
+<li> science communication </li>
+<li> 3D interfaces. </li>
+</ul>
+Your project will be lead by Meta's Expert User Interface Designer
+Carolyn Farino (Sony, Toyota, Disney) and Sydney Uni Alum and Meta
+co-CEO Ben Sand.
+<p/>
+The project will be built in Unity3D using C#. You will be supplied with
+graphics assets, and only programming is required, however we welcome
+creative extensions that fit within the subject outcomes.
+<br/>
+<b>Location</b>: Meetings will be electronic only as the client is in
+the US.
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: INFO3600 only
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPMeta5"><img id="IMGMeta5"  onclick="javascript: expandCollapse('Meta5');" title="expand/collapse">&nbsp;&nbsp;Startup: Meta, Holographic Keyboard </div>
+        <script> var elt = document.getElementById("IMG"+"Meta5"); elt.src = cell_long; $("#TIPMeta5 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="Meta5" style="display: none;">
+<b>Contact</b>: 
+Forest Rouse & Meron Gribetz
+
+<br/>
+<b>Description</b>:
+This is an opportunity to work directly with Meta CEO Meron Gribetz on
+the most fundamental part of bringing Meta into the mainstream: A
+powerful holographic keyboard with iPad level dexterity and speed.
+<p/>
+You will give the user clear feedback to guide fast typing, by
+incorporating Dolby Digital 3D sound along with spatial UI cues from our
+labs to build a highly responsive and accurate typing system.
+<p/>
+This project is ideally suited to students interested in:
+<ul> 
+<li> interface design </li>
+<li> statistical analysis. </li>
+</ul>
+Your project will be led by Meta CEO and Sydney Uni alum Meron Gribetz
+(Forbes 30 under 30), and Meta Senior Engineer Forest Rouse (Professor,
+UC Davis and Particle Physicist - Stanford Linear Accelerator).
+<p/>
+The project will be built in Unity3D using C#. You will be supplied with
+graphics assets, and only programming is required, however we welcome
+creative extensions that fit within the subject outcomes.
+<br/>
+<b>Location</b>: Meetings will be electronic only as the client is in
+the US.
+<br/>
+<b>Desirable skills:</b>: 
+see above
+
+
+<br/>
+<b>Form of project</b>: INFO3600 only
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPvictor_chang1"><img id="IMGvictor_chang1"  onclick="javascript: expandCollapse('victor_chang1');" title="expand/collapse">&nbsp;&nbsp;Victor Chang Institute: collaborative web-based genome browser for large-scale epigenomic analysis </div>
+        <script> var elt = document.getElementById("IMG"+"victor_chang1"); elt.src = cell_long; $("#TIPvictor_chang1 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="victor_chang1" style="display: none;">
+<b>Contact</b>: 
+Dr. Joshua Ho
+<br/>
+<b>Description</b>:
+The Victor Chang Cardiac Research Institute (VCCRI), established in 1994, is recognised as
+an international centre of excellence in biomedical research, with a focus on heart
+disease and cardiovascular biology. It places a strong emphasis on interdisciplinary
+approaches within and across its research divisions, which are focused on Developmental
+and Stem Cell Biology, Cardiac Physiology and Transplantation, Molecular Cardiology &
+Biophysics, Vascular Biology and Molecular, Structural and Computational Biology. The
+Institute is housed in a state-of-the-art research building located within the St
+Vincent's Hospital Research & Biotechnology Precinct in the Inner Sydney suburb of
+Darlinghurst, Sydney, Australia.
+<p/>
+Multiple bioinformatics projects are available in the Bioinformatics and Systems Medicine
+Laboratory and the Computational Cardiology Laboratory at the VCCRI. The students will be
+part of a highly interdisciplinary team, and will work on specific software development
+project in association with on-going research activities with local and international
+collaborators.
+<p/>
+<b>About this project:</b>
+The advent of Next Generation Sequencing (NGS) technologies has enabled the generation of
+genomic data at unprecedented rates, posing major challenges for analysis and
+visualisation. The Ho laboratory at the VCCRI is involved in an international
+collaboration that involves generation and analysis of hundreds of genome-wide datasets of
+various fungal genomes. To facilitate collaboration among biologists and bioinformaticians
+in different geographical locations, we propose to build a web-based genome browser that
+can handle a large amount of epigenomic data. In our project, we propose to develop a
+fast, interactive, and collaborative web-based genome browser that supports large-scale
+epigenomic analysis. Students will extend existing state-of-the-art HTML5 genome browsers
+(e.g., 
+<a href="http://www.biodalliance.org/">
+http://www.biodalliance.org/)</a>, 
+with additional functionalities that support
+comparative analysis and collaborative research.
+
+<br/>
+
+
+<b>Location</b>: Victor Chang Cardiac Research Institute,
+Darlinghurst.
+<br/>
+<b>Desirable skills:</b>: 
+HTML5, javascript, web interface design
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPvictor_chang2"><img id="IMGvictor_chang2"  onclick="javascript: expandCollapse('victor_chang2');" title="expand/collapse">&nbsp;&nbsp;Victor Chang Institute: Realistic whole heart simulation: An OpenCL code generator for CHASTE </div>
+        <script> var elt = document.getElementById("IMG"+"victor_chang2"); elt.src = cell_long; $("#TIPvictor_chang2 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="victor_chang2" style="display: none;">
+<b>Contact</b>: 
+Dr. Arash Sadrieh
+<br/>
+<b>Description</b>:
+Defects in the electrical activity of heart cause ~12% of adult deaths in the developed
+world. Multi-scale computational modelling of the heart is now recognised as a powerful
+technique for interrogating the molecular and cellular basis of cardiac electrical
+activity. Computational approaches have allowed us to tease out important relations
+between parameters, which are not possible using current laboratory techniques. Until now,
+however, the application of computational methods has been limited by the enormous
+computational burden of current cardiac models. We overcome this computational limitation
+by applying General Purpose Graphical Processing Units (GPGPU).  In this project we plan
+to automate the conversation of traditional CPU-based code to GPU-based code by
+implementing a code generator. We need to build a software system that receives a
+mathematical model expressed in a specific XML format (called CellML) and then generates
+an OpenCL solver for the model (We have a python module that generates C++ solvers, this
+module can be a good starting point).
+<br/>
+
+
+<b>Location</b>: Victor Chang Cardiac Research Institute,
+Darlinghurst.
+<br/>
+<b>Desirable skills:</b>: 
+Python, Scons, Cmake, OpenCL, GPGPU, Code generation, Unit testing, working with large
+open-source software systems and little bit of C++(STL/boost)
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="cell">
+<tr><td align=left class="cellbanner">
+ <div id="TIPvictor_chang3"><img id="IMGvictor_chang3"  onclick="javascript: expandCollapse('victor_chang3');" title="expand/collapse">&nbsp;&nbsp;Victor Chang Institute: Web-based Holter recording data repository  </div>
+        <script> var elt = document.getElementById("IMG"+"victor_chang3"); elt.src = cell_long; $("#TIPvictor_chang3 img[title]").tooltip(); </script> 
+</td></tr><tr><td class="cellbody">
+<div id="victor_chang3" style="display: none;">
+<b>Contact</b>: 
+Dr. Arash Sadrieh
+<br/>
+<b>Description</b>:
+The electrocardiogram (ECG) is a time series of data representing electrical activity of
+the heart. For over 100 years it has been applied by cardiologists to diagnose many life
+threatening cardiac diseases. Using state-of-art machine learning and signal processing
+methods, we have shown that there is a wealth of useful new information that can be
+extracted from ECGs that could be used to improve the diagnosis and management of a range
+of cardiac disorders. To show the effectiveness of our methods we need access to a large
+database of ambulatory ECG recordings. We are in the process of establishing a large
+collaboration with hospitals across NSW to build an integrated web-based data repository
+for our study. We need to build a web-based system that will enable our
+(local/international) collaborators to upload relatively large data files (~4GB per
+patient).We estimate that the database will need to hold ~5000 data files. We want to run
+some back-end post processing on the data and provide collaborators the ability to
+query/download information from this dataset. 
+<br/>
+
+
+<b>Location</b>: Victor Chang Cardiac Research Institute,
+Darlinghurst.
+<br/>
+<b>Desirable skills:</b>: 
+Python, Django, Large time series datasets, Amazon S3/AWS EC2, Software integration
+mechanisms, Design patterns  
+
+
+<br/>
+<b>Form of project</b>: all.
+</div>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+</table></td>
+<!-- Column 3 END -->
+
+</tr><tr>
+
+<!-- Bottom START -->
+<td width="85%" class="framedata" valign="top" colspan="3">
+<table cellpadding="0" width="100%" cellspacing="0" border="0" class="column">
+<tr><td class="columndata">
+
+<!-- Cell START -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 2px;">
+<tr>
+    <td width="91%"></td>
+    <td valign=bottom>
+	<span style="font-family: helvetica,arial,sans-serif;font-size: 60%;">Last changed: Wed Jun 10 14:14:30 2015</span></td>
+</tr></table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 2px;"><tr><td width="99%">
+</td><td valign=middle>
+  <span style="font-family: helvetica,arial,sans-serif;font-size: 60%;"> Poweredby&nbsp;</span> 
+</td><td valign=bottom>
+  <a href="http://www.it.usyd.edu.au/~bob/web.cgi?Cellerator">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAA40lEQVR4nOWXMQ7DIAxFPxVnxXOW
+DDlAhizMPi0dEIjapE1ISgbehJFl/S/bQTHOOYyEBcDMT8voBBHZdDQ31OOw+eWGOv9hnlYAr6dl
+9GY4w7ZyxwEohjyG+YbDx/yLMBHnB0AcchGWOflG5/xMaEAZzgZKJ00bLmRl53uHzS/5XE3QRRqo
+dTgi2ojTtqv90R2+UrOB/R3OkwyATEOTN7+UyrRKkXCw5lkZAmWYDDhUFrX0/z1MzNMqehiH9qCy
+mKyn91QRjXHOMfMg7zARDfcsDWc4faVrS9jAle3qgxntb+kN/vGFkIjMAnUAAAAASUVORK5CYII=
+" title="Cellerator Home" alt="[Cellerator]" width=80 height=15 border=0>
+  </a>
+</td></tr></table>
+<!-- Cell END -->
+
+</td></tr>
+</table></td>
+<!-- Bottom END -->
+
+</tr></table>
+
+<!-- Completed in 0.08 cpu / 0.06 wall seconds. -->
+</body></html>
